@@ -7,4 +7,4 @@ webcv
 db.sqlite3
 /static
 /polls
-geckogriver.log
+geckodriver.log

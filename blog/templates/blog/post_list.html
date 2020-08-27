@@ -7,7 +7,7 @@
                 {{ post.published_date }}
             </div>
             {% load blog_extras %}
-            <h2 id= {{"header"|concat_header:post.id}} > <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <h2 id= {{"header"|concat_header:post.id}} > <a id= {{"link"|concat_header:post.id}} href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p id= {{"text"|concat_header:post.id}} > {{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}

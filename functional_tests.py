@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+import time
 
 class WebsiteTests(unittest.TestCase):
 
@@ -18,10 +19,17 @@ class WebsiteTests(unittest.TestCase):
         #User checks the title to make sure they're on the right site
         self.assertEqual('Blog', self.browser.title)
 
-        #User can see one of the blog posts
+        #User can see the title and text of a blog post
         #This is really messy as it is based on a static post
         #TODO:Solution not based on Hello world post
-        self.assertEqual('Hello world', self.browser.find_element_by_id("header11").text)
+        post_title = self.browser.find_element_by_id("header11")
+        self.assertEqual('Hello world', post_title.text)
+        self.assertEqual('I made a blog. I can edit the text', self.browser.find_element_by_id("text11").text)
+
+        #User tries to view the detail of the blog post
+        self.browser.find_element_by_id("link11").click()
+        time.sleep(5)
+        assert(self.browser.current_url.endswith("/post/11/"))
 
 
 if __name__ == '__main__':
