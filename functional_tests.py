@@ -28,8 +28,22 @@ class WebsiteTests(unittest.TestCase):
 
         #User tries to view the detail of the blog post
         self.browser.find_element_by_id("link11").click()
-        time.sleep(5)
+        time.sleep(1)
         assert(self.browser.current_url.endswith("/post/11/"))
+
+    def test_can view cv(self):
+
+        #User open the site
+        self.browser.get('http://localhost:8000')
+
+        self.browser.find_element_by_id("cv link").click()
+        time.sleep(1)
+        #user clicks on the link to the cv page
+        self.fail("finish test")
+
+        #user can read the title
+
+        #user extends a section
 
 
 if __name__ == '__main__':

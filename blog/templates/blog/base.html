@@ -7,11 +7,12 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="/">Blog</a></h1>
+        <div class="page-header" style="display:flex;align-items: center;">
+            <h1 id = "home_link" style="flex-grow:100;"><a href="/">Blog</a></h1>
             {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a id = "new_article" href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
+            <a class="link-to-cv" id = "cv link" href="{% url 'cvapp:display_cv' %}"><h2>My CV</h2></a>
         </div>
         {% block content %}
         {% endblock %}
