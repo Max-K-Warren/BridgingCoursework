@@ -22,8 +22,7 @@ class WebsiteTests(unittest.TestCase):
         #User can see the title and text of a blog post
         #This is really messy as it is based on a static post
         #TODO:Solution not based on Hello world post
-        post_title = self.browser.find_element_by_id("header11")
-        self.assertEqual('Hello world', post_title.text)
+        self.assertEqual('Hello world', self.browser.find_element_by_id("header11").text)
         self.assertEqual('I made a blog. I can edit the text', self.browser.find_element_by_id("text11").text)
 
         #User tries to view the detail of the blog post
@@ -31,13 +30,17 @@ class WebsiteTests(unittest.TestCase):
         time.sleep(1)
         assert(self.browser.current_url.endswith("/post/11/"))
 
-    def test_can view cv(self):
+    def test_can_view_cv(self):
 
         #User open the site
         self.browser.get('http://localhost:8000')
 
         self.browser.find_element_by_id("cv link").click()
         time.sleep(1)
+
+        #checks that the title to see that this should be a CV
+        self.assertEqual(self.browser.title, "Max Warren\'s CV")
+
         #user clicks on the link to the cv page
         self.fail("finish test")
 
