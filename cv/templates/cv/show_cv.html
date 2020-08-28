@@ -1,3 +1,5 @@
+{% load static %}
+{% load blog_extras %}
 <html>
     <head>
         <title>Max Warren's CV</title>
@@ -8,9 +10,14 @@
 
     <body>
         <p><h1>Max Warren</h1></p>
+        <a id="git-hub-link" href="https://github.com/Max-K-Warren">
+            <img id="git-hub-logo" src="{%static 'image/GitHub-Mark.png'%}" alt="Github image" style="height: 96px; padding: 24px;">
+        </a>
+        <a id="linked-in-link" href="www.linkedin.com/in/max-warren-882967172">
+            <img id="linked-in-logo" src="{%static 'image/In-Bug.png'%}" alt="Linkedin logo" style="height: 96px; padding: 24px;">
+        </a>
         <div class="panel-group">
             <div class="panel-default">
-                {% load blog_extras %}
                 {%for cat in data %}
                     <div class ="panel-heading">
                         <!-- This is REALLY nasty-->
