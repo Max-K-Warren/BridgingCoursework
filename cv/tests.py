@@ -31,7 +31,19 @@ class CVInfoModelTests(TestCase):
         first_category = self.save_category("Komi", 1)
         first_item = self.save_item("communication 1", "totally normal", 1, first_category)
         example_dict = CVStructureMaker()
-        self.assertEqual(str(example_dict), "[['Komi', [<CV_Item: communication 1>]]]")
+        self.assertEqual(str(example_dict), "[[<CV_Category: Komi>, [<CV_Item: communication 1>]]]")
+
+
+    #Items with be reordered  and outputted according to their position values not
+    def test_can_use_position_to_order_output(self):
+        second_category = self.save_category("Volume 2", 2)
+        first_category = self.save_category("Volume 1", 1)
+        fourth_item = self.save_item("communication 21", "fitness test", 2, second_category)
+        third_item = self.save_item("communication 20", "the physical", 1, second_category)
+        first_item = self.save_item("communication 1", "totally normal", 1, first_category)
+        second_item = self.save_item("communication 2", "peaceful", 2, first_category)
+        reordered_dict = CVStructureMaker()
+        self.assertEqual(str(reordered_dict), "[[<CV_Category: Volume 1>, [<CV_Item: communication 1>, <CV_Item: communication 2>]], [<CV_Category: Volume 2>, [<CV_Item: communication 20>, <CV_Item: communication 21>]]]")
 
     
 
