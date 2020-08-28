@@ -1,6 +1,6 @@
 asgiref==3.2.7
 Django==2.2.13
-pkg-resources==0.0.0
+pkg-resources
 pytz==2020.1
 selenium==3.141.0
 sqlparse==0.3.1
