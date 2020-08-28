@@ -3,5 +3,14 @@
         <title>Max Warren's CV</title>
     </head>
 
+    <body>
+        <p><h1>Max Warren</h1></p>
 
+        {%for cat in data %}
+            <h2>{{cat.0}}</h2>
+            {% for item in cat.1 %}
+                <p><h3>{{item.name}}</h3>{{item.description}}</p>
+            {% endfor %}
+        {% endfor %}
+    </body>
 </html>

@@ -35,14 +35,18 @@ class WebsiteTests(unittest.TestCase):
         #User open the site
         self.browser.get('http://localhost:8000')
 
+        #user clicks on the link to the cv page
         self.browser.find_element_by_id("cv link").click()
         time.sleep(1)
 
         #checks that the title to see that this should be a CV
         self.assertEqual(self.browser.title, "Max Warren\'s CV")
 
-        #user clicks on the link to the cv page
-        self.fail("finish test")
+        #user can read the heading
+        try:
+            self.browser.find_element_by_id("fixed-info")
+        except:
+            self.fail("fixed-info not on page")
 
         #user can read the title
 
