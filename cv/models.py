@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+class CV_Category(models.Model):
+    name = models.TextField()
+    position = models.IntegerField()
+
+class CV_Item(models.Model):
+    name = models.TextField()
+    position = models.IntegerField()
+    CV_Category = models.ForeignKey(CV_Category, on_delete=models.CASCADE)
+
