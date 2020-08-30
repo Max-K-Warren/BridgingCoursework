@@ -39,8 +39,17 @@ class WebsiteTests(unittest.TestCase):
         self.browser.find_element_by_id("cv link").click()
         time.sleep(1)
 
-        #checks that the title to see that this should be a CV
-        self.assertEqual(self.browser.title, "Max Warren\'s CV")
+        #checks the github link
+        self.browser.find_element_by_id("git-hub-link").click()
+        time.sleep(1)
+        self.assertEqual(self.browser.current_url, "https://github.com/Max-K-Warren")
+        self.browser.back()
+
+        #checks the linkedin link
+        self.browser.find_element_by_id("linked-in-link").click()
+        time.sleep(1)
+        self.assertIn("linkedin.com", self.browser.current_url)
+        self.browser.back()
 
         #user can read the heading
         try:
@@ -48,9 +57,6 @@ class WebsiteTests(unittest.TestCase):
         except:
             self.fail("fixed-info not on page")
 
-        #user can read the title
-
-        #user extends a section
 
 
 if __name__ == '__main__':
